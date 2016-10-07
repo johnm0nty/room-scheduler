@@ -1,0 +1,19 @@
+{
+  "name": "room-scheduler",
+  "version": "1.0.0",
+  "description": "Room Scheduler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnm0nty/room-scheduler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnm0nty/room-scheduler/issues"
+  },
+  "homepage": "https://github.com/johnm0nty/room-scheduler#readme"
+}

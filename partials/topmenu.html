@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+  <a class="navbar-brand" ng-click="topMenu.setSelectedRoom(item.id)" href="">{{topMenu.header}}</a>
+  <ul class="navbar-nav navbar-left nav">
+    <li>
+      <cd-sorter></cd-sorter>
+    </li>
+    <li ng-repeat="item in topMenu.availableRooms | orderBy:sortBy" ng-click="topMenu.setSelectedRoom(item.id)" ng-class="{active:item.active}">
+      <a ui-sref="room({id:item.id})">{{item.name}}</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav navbar-right nav">
+    <li><a ui-sref="about" ng-click="topMenu.setSelectedRoom(item.id)">About the Author</a></li>
+    <li ng-repeat="item in topMenu.bookmarks | orderBy:sortBy" ng-click="topMenu.setSelectedRoom(item.id)" ng-class="{active:item.active}">
+      <a ui-sref="room({id: item.id})">{{item.name}}</a>
+    </li>
+  </ul>
+</nav>
