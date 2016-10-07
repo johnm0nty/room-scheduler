@@ -17,9 +17,24 @@
       controller:'roomController',
       controllerAs:'roomCtrl'
     }
+    var bookmarkAdd = {
+      name:'bookmarkAdd',
+      url:'/room/:id/bookmarkadd',
+      controller:'roomBookmarkAddController',
+      controllerAs:'roomBookmarkAddCtrl'
+    }
+    var bookmarkDel = {
+      name:'bookmarkDel',
+      url:'/room/:id/bookmarkdel',
+      controller:'roomBookmarkDelController',
+      controllerAs:'roomBookmarkDelCtrl',
+      template:' '
+    }
 
     $stateProvider.state(baseState);
     $stateProvider.state(aboutState);
     $stateProvider.state(roomState);
+    $stateProvider.state(bookmarkAdd);
+    $stateProvider.state(bookmarkDel);
   });
 })(window.angular);

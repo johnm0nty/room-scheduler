@@ -12,6 +12,9 @@
         this.addToBookmarks = function(id){
           userSettingsService.addToBookmarks(id);
         };
+        this.removeFromBookmarks = function(id){
+          userSettingsService.removeFromBookmarks(id);
+        };
       };
       return {
         // templateUrl:'partials/topmenu.html',
@@ -25,7 +28,8 @@
         controller:cdTopMenuController,
         controllerAs:'topMenu',
         bindToController:{
-          header:'@'
+          header:'@',
+          xtraLinks:'@'
         }
       }
     });

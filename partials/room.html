@@ -1,5 +1,6 @@
 <div class="container-fluid">
-  <cd-top-menu id="top-menu" header="Here's a room!"></cd-top-menu>
+  <cd-top-menu id="top-menu" header="Here is a room!"></cd-top-menu>
   <h4 class='ui header'>{{roomCtrl.roomid}}</h4>
-  <a ng-click='topMenu.addToBookmarks(roomCtrl.roomid)'>Bookmark this room!</a>
+  <button ng-click="topMenu.addToBookmarks(roomCtrl.roomid)">Bookmark this room!</button>
+  <button ng-click="topMenu.removeFromBookmarks(roomCtrl.roomid)">Remove your bookmark!</button>
 </div>

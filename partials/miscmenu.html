@@ -1,3 +1,12 @@
 <nav class="navbar navbar-default">
-  <a href="#" class="navbar-brand">Test</a>
+  <ul class="navbar-nav navbar-left nav">
+    <li ng-repeat="item in topMenu.bookmarks">
+      <a ui-sref="room({item.id})">{{item.name}}</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav navbar-left nav">
+    <li ng-repeat="link in topMenu.xtralinks">
+      <a ui-sref="({link.url})">{{link.name}}</a>
+    </li>
+  </ul>
 </nav>
