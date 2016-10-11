@@ -1,3 +1,5 @@
+use room_scheduler;
+
 delimiter //
 create procedure setupdb()
 begin

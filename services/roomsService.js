@@ -1,7 +1,7 @@
 (function(angular){
   angular
     .module('base')
-    .factory('roomsService',function(){
+    .factory('roomsService',function($http){
       var availableRooms = [{
         "id": 1,
         "name": "Sim City",
@@ -22,6 +22,21 @@
         "name": "Halo",
         "active": false
       }];
+
+      // var availableRooms = [];
+      //
+      // $http.get('php/getrooms.php')
+      //   .then(
+      //     function(response){
+      //       availableRooms = response.data.records;
+      //       availableRooms.forEach((room) => {
+      //         room.active = false;
+      //       });
+      //       console.log(availableRooms);
+      //     },
+      //     function(response){alert('An error occurred while retrieving the list of rooms from the database.');}
+      //   );
+
       function setSelectedRoom(id){
         availableRooms.forEach((room) => {
           if(room.id === id){
