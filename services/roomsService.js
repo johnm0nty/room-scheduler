@@ -23,8 +23,8 @@
         "active": false
       }];
 
-      // var availableRooms = [];
-      //
+      var availableRooms = [];
+
       // $http.get('php/getrooms.php')
       //   .then(
       //     function(response){
@@ -34,7 +34,29 @@
       //       });
       //       console.log(availableRooms);
       //     },
-      //     function(response){alert('An error occurred while retrieving the list of rooms from the database.');}
+      //     function(response){
+      //       availableRooms = [{
+      //         "id": 1,
+      //         "name": "Sim City",
+      //         "active": false
+      //       },
+      //       {
+      //         "id": 2,
+      //         "name": "Zelda",
+      //         "active": false
+      //       },
+      //       {
+      //         "id": 3,
+      //         "name": "Sonic",
+      //         "active": false
+      //       },
+      //       {
+      //         "id": 4,
+      //         "name": "Halo",
+      //         "active": false
+      //       }];
+      //       alert('Unable to retrieve data from the database. The default values will be used instead.');
+      //     }
       //   );
 
       function setSelectedRoom(id){
