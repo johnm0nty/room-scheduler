@@ -23,8 +23,8 @@
         "active": false
       }];
 
-      var availableRooms = [];
-
+      // var availableRooms = [];
+      // 
       // $http.get('php/getrooms.php')
       //   .then(
       //     function(response){
