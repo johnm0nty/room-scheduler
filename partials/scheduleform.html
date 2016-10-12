@@ -1,0 +1,21 @@
+<div style="margin-top: 1.8em;">
+	<form name="reserveForm" style="margin-bottom: 2em;" ng-hide="roomCtrl.selectedRoom.reservations[scheduleCtrl.reservationId].isReserved">
+		<div class="ui large form">
+			<div class="field" ng-class="{field: true, error: reserveForm.rname.$invalid}">
+				<label>Reservee Name</label>
+				<input name="rname" placeholder="Reservee Name" type="text" ng-model="scheduleCtrl.name" required>
+			</div>
+			<div ng-class="{field:true,error:reserveForm.remail.$invalid}">
+				<label>Reservee Email</label>
+				<input name="remail" placeholder="Shows the user what to do" type="email" ng-model="scheduleCtrl.email" required>
+			</div>
+			<div class="field" ng-class="{field: true, error: reserveForm.rselect.$invalid}">
+				<label>Room Use</label>
+				<select name="rselect" ng-options="reason as reason for reason in scheduleCtrl.reasons" ng-model="scheduleCtrl.selectedReason" required>
+					<option value="">-- select how the room will be used</option>
+				</select>
+			</div>
+		</div>
+	</form>
+	<cd-top-menu xtra-links="scheduleCtrl.roomactionlinks"></cd-top-menu>
+</div>

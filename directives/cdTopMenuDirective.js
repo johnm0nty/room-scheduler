@@ -29,7 +29,7 @@
         controllerAs:'topMenu',
         bindToController:{
           header:'@',
-          xtraLinks:'@'
+          xtraLinks:'='
         }
       }
     });

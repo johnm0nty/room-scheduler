@@ -1,12 +1,10 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" ng-show="reserveForm.$valid">
   <ul class="navbar-nav navbar-left nav">
-    <li ng-repeat="item in topMenu.bookmarks">
-      <a ui-sref="room({item.id})">{{item.name}}</a>
-    </li>
-  </ul>
-  <ul class="navbar-nav navbar-left nav">
-    <li ng-repeat="link in topMenu.xtralinks">
-      <a ui-sref="({link.url})">{{link.name}}</a>
+    <li ng-repeat="item in topMenu.xtraLinks">
+      <a ng-class="{disabled: item.disabled, item: true}"
+    		ng-click="item.action()">
+    		<i class="blue" ng-class="item.icon"></i> {{item.name}}
+    	</a>
     </li>
   </ul>
 </nav>

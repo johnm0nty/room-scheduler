@@ -2,6 +2,8 @@
   angular.module('base').controller('roomController',function($stateParams,$location,roomsService,userSettingsService){
     this.roomid = $stateParams.id;
     this.name = 'John Montgomery';
+    roomsService.setSelectedRoom($stateParams.id);
+		this.selectedRoom = roomsService.fetchSelectedRoom();
 
     this.favactionlinks = [
       {
