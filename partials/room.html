@@ -3,30 +3,5 @@
   <h4 class='ui header'>Welcome to room {{roomCtrl.roomid}}!</h4>
   <button ng-click="topMenu.addToBookmarks(roomCtrl.roomid)">Bookmark this room!</button>
   <button ng-click="topMenu.removeFromBookmarks(roomCtrl.roomid)">Remove your bookmark!</button>
-  <div ng-repeat="reservationslot in roomCtrl.selectedRoom.reservations" class="item">
-
-    <div style="margin-left: 2em; margin-right: 2em;">
-      <i class="users blue huge icon"></i>
-      <h4>{{reservationslot.startHour + " o'clock - "}} <br/> {{reservationslot.endHour + " o'clock"}}</h4>
-    </div>
-
-    <button ng-hide="reservationslot.showui" ng-click="reservationslot.showui = true">Reserve this Slot</button>
-
-    <div ng-show="reservationslot.showui" class="middle aligned content">
-      <div ng-show="reservationslot.isReserved" class="header" style="margin-top: 2em;">
-        RESERVED BY:&nbsp;{{reservationslot.reserveeName}}
-      </div>
-      <div ng-show="reservationslot.isReserved" class="description">
-        &nbsp; EMAIL:&nbsp;{{reservationslot.reserveeEmail}}
-      </div>
-      <div ng-show="reservationslot.isReserved" class="description">
-        &nbsp; FOR:&nbsp;{{reservationslot.reservationDescription}}
-      </div>
-
-      <div style="margin-right: 4em;">
-        <cd-schedule-room-form reservation-id="{{reservationslot.id}}"></cd-schedule-room-form>
-      </div>
-    </div>
-
-  </div>
+  <cd-schedule-component></cd-schedule-component>
 </div>

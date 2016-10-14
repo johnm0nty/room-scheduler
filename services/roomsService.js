@@ -27,6 +27,7 @@
       // $http.get('php/getrooms.php')
       //   .then(
       //     function(response){
+      //       console.log(availableRooms);
       //       availableRooms = response.data.records;
       //       availableRooms.forEach((room) => {
       //         room.active = false;
@@ -56,8 +57,7 @@
       //       }];
       //       alert('Unable to retrieve data from the database. The default values will be used instead.  Error: '+response.statusText);
       //       console.log(response);
-      //     }
-      //   );
+      //     });
 
       function initRoomDaySchedule() {
 				availableRooms.forEach((room) => {
@@ -101,8 +101,6 @@
 						});
 					}
 				});
-
-				console.log(availableRooms);
 			};
 
 			function setSelectedRoomSchedule(reservationid, name, email, description) {

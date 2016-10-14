@@ -13,9 +13,7 @@
     var roomState = {
       name:'room',
       url:'/room/:id',
-      templateUrl:'partials/room.html',
-      controller:'roomController',
-      controllerAs:'roomCtrl'
+      template:'<room-component></room-component>'
     }
     var bookmarkAdd = {
       name:'bookmarkAdd',

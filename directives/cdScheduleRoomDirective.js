@@ -10,6 +10,8 @@
 
 				this.name = null;
 
+				this.email = null;
+
 				this.reasons = ["Team Meeting", "Client Meeting", "Birthday", "Interview", "Miscellaneous"];
 
 				this.selectedReason = null;
