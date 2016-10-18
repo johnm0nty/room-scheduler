@@ -1,3 +1,7 @@
 .isReserved {
   background-color:#AAF;
 }
+.reservationSlot {
+  border:1px solid #000;
+  min-height:160px;
+}

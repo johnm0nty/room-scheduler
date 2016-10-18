@@ -1,44 +1,46 @@
-<div ng-repeat="reservationslot in model.selectedRoom.reservations" style="border:1px solid #000" ng-class="{isReserved:reservationslot.isReserved}">
+<div ng-repeat="reservationslot in model.selectedRoom.reservations" ng-class="{isReserved:reservationslot.isReserved, reservationSlot:true, row:true}">
 
-  <div style="margin-left: 2em; margin-right: 2em;">
+  <div class="col-xs-3">
     <i class="users blue huge icon"></i>
     <h4>{{reservationslot.startHour + " o'clock - "}} <br/> {{reservationslot.endHour + " o'clock"}}</h4>
   </div>
+  <div class="col-xs-6">
+    <button ng-hide="reservationslot.showui" ng-click="reservationslot.showui = true">Reserve this Slot</button>
+    <div ng-show="reservationslot.showui" class="middle aligned content">
+      <div ng-show="reservationslot.isReserved" class="header" style="margin-top: 2em;">
+        RESERVED BY:&nbsp;{{reservationslot.reserveeName}}
+      </div>
+      <div ng-show="reservationslot.isReserved" class="description">
+        &nbsp; EMAIL:&nbsp;{{reservationslot.reserveeEmail}}
+      </div>
+      <div ng-show="reservationslot.isReserved" class="description">
+        &nbsp; FOR:&nbsp;{{reservationslot.reservationDescription}}
+      </div>
 
-  <button ng-hide="reservationslot.showui" ng-click="reservationslot.showui = true">Reserve this Slot</button>
-
-  <div ng-show="reservationslot.showui" class="middle aligned content">
-    <div ng-show="reservationslot.isReserved" class="header" style="margin-top: 2em;">
-      RESERVED BY:&nbsp;{{reservationslot.reserveeName}}
-    </div>
-    <div ng-show="reservationslot.isReserved" class="description">
-      &nbsp; EMAIL:&nbsp;{{reservationslot.reserveeEmail}}
-    </div>
-    <div ng-show="reservationslot.isReserved" class="description">
-      &nbsp; FOR:&nbsp;{{reservationslot.reservationDescription}}
-    </div>
-
-    <div style="margin-top: 1.8em;">
-      <form name="reserveForm" style="margin-bottom: 2em;" ng-hide="reservationslot.isReserved">
-        <div class="ui large form">
-          <div class="field" ng-class="{field: true, error: reserveForm.rname.$invalid}">
-            <label>Reservee Name</label>
-            <input name="rname" placeholder="Reservee Name" type="text" ng-model="model.name" required>
+      <div style="margin-top: 1.8em;">
+        <form name="reserveForm" style="margin-bottom: 2em;" ng-hide="reservationslot.isReserved">
+          <div class="ui large form">
+            <div class="field" ng-class="{field: true, error: reserveForm.rname.$invalid}">
+              <label>Reservee Name</label>
+              <input name="rname" placeholder="Reservee Name" type="text" ng-model="model.name" required>
+            </div>
+            <div ng-class="{field:true,error:reserveForm.remail.$invalid}">
+              <label>Reservee Email</label>
+              <input name="remail" placeholder="Shows the user what to do" type="email" ng-model="model.email" required>
+            </div>
+            <div class="field" ng-class="{field: true, error: reserveForm.rselect.$invalid}">
+              <label>Room Use</label>
+              <select name="rselect" ng-options="reason as reason for reason in model.reasons" ng-model="model.selectedReason" required>
+                <option value="">-- select how the room will be used</option>
+              </select>
+            </div>
           </div>
-          <div ng-class="{field:true,error:reserveForm.remail.$invalid}">
-            <label>Reservee Email</label>
-            <input name="remail" placeholder="Shows the user what to do" type="email" ng-model="model.email" required>
-          </div>
-          <div class="field" ng-class="{field: true, error: reserveForm.rselect.$invalid}">
-            <label>Room Use</label>
-            <select name="rselect" ng-options="reason as reason for reason in model.reasons" ng-model="model.selectedReason" required>
-              <option value="">-- select how the room will be used</option>
-            </select>
-          </div>
-        </div>
-      </form>
-      <button ng-hide="reservationslot.isReserved || !reserveForm.$valid" ng-click="model.setSelectedRoomSchedule(reservationslot.id)">Add Reservation</button>
-      <button ng-show="reservationslot.isReserved" ng-click="model.deleteSelectedRoomSchedule(reservationslot.id);reservationslot.showui=false">Withdraw Reservation</button>
+        </form>
+      </div>
     </div>
+  </div>
+  <div class="col-xs-3" ng-show="reservationslot.showui">
+    <button ng-hide="reservationslot.isReserved || !reserveForm.$valid" ng-click="model.setSelectedRoomSchedule(reservationslot.id)">Add Reservation</button>
+    <button ng-show="reservationslot.isReserved" ng-click="model.deleteSelectedRoomSchedule(reservationslot.id);reservationslot.showui=false">Withdraw Reservation</button>
   </div>
 </div>
