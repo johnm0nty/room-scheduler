@@ -4,6 +4,10 @@ function componentController($stateParams,$location,roomsService,userSettingsSer
   roomsService.setSelectedRoom($stateParams.id);
   this.selectedRoom = roomsService.fetchSelectedRoom();
 
+  this.roomRating = function(rating){
+    console.log(rating.length);
+  }
+
   this.favactionlinks = [
     {
       'url':'room'+this.id+'/bookmarkadd',

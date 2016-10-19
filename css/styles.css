@@ -3,5 +3,13 @@
 }
 .reservationSlot {
   border:1px solid #000;
-  min-height:160px;
+  height:160px;
+  margin:10px;
+}
+.scheduleBtn {
+  height:100px;
+  margin:30px 0 30px 0;
+}
+.scheduleHours {
+  margin-top:30px;
 }

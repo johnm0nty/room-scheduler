@@ -9,7 +9,7 @@ $result = $conn->query("SELECT ID,NAME FROM ROOMS");
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "") {$outp .= ",";}
-    $outp .= '{"ID":"'  . $rs["ID"] . '",';
+    $outp .= '{"id":"'  . $rs["ID"] . '",';
     $outp .= '"name":"'   . $rs["NAME"]        . '"}';
 }
 $outp ='{"records":['.$outp.']}';

@@ -1,7 +1,8 @@
-<div class="container-fluid">
+<div>
   <cd-top-menu id="top-menu" header="Here is a room!"></cd-top-menu>
   <h4 class='ui header'>Welcome to room {{model.roomid}}!</h4>
   <button ng-click="topMenu.addToBookmarks(model.roomid)">Bookmark this room!</button>
   <button ng-click="topMenu.removeFromBookmarks(model.roomid)">Remove your bookmark!</button>
+  <cd-room-rating-component rating-updated="model.roomRating(value)">J</cd-room-rating-component>
   <cd-schedule-component></cd-schedule-component>
 </div>

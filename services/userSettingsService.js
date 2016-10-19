@@ -19,7 +19,7 @@
       }
 
       function addToBookmarks(id){
-        var availableRooms = roomsService.availableRooms;
+        var availableRooms = roomsService.availableRooms();
         availableRooms.forEach((room) => {
           if (room.id == id && bookmarks.indexOf(room) == -1){
             bookmarks.push(room);
@@ -28,7 +28,7 @@
       }
 
       function removeFromBookmarks(id){
-        var availableRooms = roomsService.availableRooms;
+        var availableRooms = roomsService.availableRooms();
         availableRooms.forEach((room) => {
           var index = bookmarks.indexOf(room);
           if (room.id == id && index != -1){

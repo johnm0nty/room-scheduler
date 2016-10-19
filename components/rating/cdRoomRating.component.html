@@ -1,0 +1,4 @@
+<div style="float:right">
+  <select ng-options="star.length for star in model.maxstars" ng-change="model.ratingUpdated({value:model.totalstars})" ng-model="model.totalstars"></select>
+  <span ng-repeat="$index in model.totalstars track by $index"><ng-transclude>*</ng-transclude></span>
+</div>

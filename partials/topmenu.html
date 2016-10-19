@@ -5,11 +5,29 @@
       <li>
         <cd-sorter></cd-sorter>
       </li>
-      <li ng-repeat="item in topMenu.availableRooms | orderBy:sortBy" ng-click="topMenu.setSelectedRoom(item.id)" ng-class="{active:item.active}">
-        <a ui-sref="room({id:item.id})">{{item.name}}</a>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rooms<span class="caret"></span>
+          <ul class="dropdown-menu">
+            <li ng-repeat="item in topMenu.availableRooms | orderBy:sortBy" ng-click="topMenu.setSelectedRoom(item.id)" ng-class="{active:item.active}">
+              <a ui-sref="room({id:item.id})">{{item.name}}</a>
+            </li>
+          </ul>
+        </a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right nav">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Functions<span class="caret"></span>
+          <ul class="dropdown-menu">
+            <li>
+              <a>Add Room</a>
+            </li>
+            <li>
+              <a>Remove Room</a>
+            </li>
+          </ul>
+        </a>
+      </li>
       <li><a ui-sref="about" ng-click="topMenu.setSelectedRoom(item.id)">About the Author</a></li>
     </ul>
   </nav>

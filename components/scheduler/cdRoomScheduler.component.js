@@ -1,12 +1,12 @@
 (function(angular){
-  function componentController(roomsService){
+  function componentController(roomsService,$scope){
     this.$onInit = function(){
+      this.selectedRoom = roomsService.fetchSelectedRoom();
       this.availableRooms = roomsService.availableRooms;
       this.name = null;
       this.email = null;
       this.reasons = ["Team Meeting", "Client Meeting", "Birthday", "Interview", "Miscellaneous"];
       this.selectedReason = null;
-      this.selectedRoom = roomsService.fetchSelectedRoom();
     };
     this.$onDestroy = function(){
       console.log('Component destroy');
@@ -27,7 +27,7 @@
     .module('base')
     .component('cdScheduleComponent',{
       templateUrl:'components/scheduler/cdRoomScheduler.component.html',
-      controller:['roomsService',componentController],
+      controller:['roomsService','$scope',componentController],
       controllerAs:'model'
     });
 }(window.angular))

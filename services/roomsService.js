@@ -1,63 +1,60 @@
 (function(angular){
   angular
     .module('base')
-    .factory('roomsService',function($http){
-      var availableRooms = [{
-        "id": 1,
-        "name": "Sim City",
-        "active": false
-      },
-      {
-        "id": 2,
-        "name": "Zelda",
-        "active": false
-      },
-      {
-        "id": 3,
-        "name": "Sonic",
-        "active": false
-      },
-      {
-        "id": 4,
-        "name": "Halo",
-        "active": false
-      }];
+    .factory('roomsService',function($http, $rootScope){
+      // var availableRooms = [{
+      //   "id": 1,
+      //   "name": "Sim City",
+      //   "active": false
+      // },
+      // {
+      //   "id": 2,
+      //   "name": "Zelda",
+      //   "active": false
+      // },
+      // {
+      //   "id": 3,
+      //   "name": "Sonic",
+      //   "active": false
+      // },
+      // {
+      //   "id": 4,
+      //   "name": "Halo",
+      //   "active": false
+      // }];
 
-      // var availableRooms = [];
-      // $http.get('php/getrooms.php')
-      //   .then(
-      //     function(response){
-      //       console.log(availableRooms);
-      //       availableRooms = response.data.records;
-      //       availableRooms.forEach((room) => {
-      //         room.active = false;
-      //       });
-      //       console.log(availableRooms);
-      //     },
-      //     function(response){
-      //       availableRooms = [{
-      //         "id": 1,
-      //         "name": "Sim City",
-      //         "active": false
-      //       },
-      //       {
-      //         "id": 2,
-      //         "name": "Zelda",
-      //         "active": false
-      //       },
-      //       {
-      //         "id": 3,
-      //         "name": "Sonic",
-      //         "active": false
-      //       },
-      //       {
-      //         "id": 4,
-      //         "name": "Halo",
-      //         "active": false
-      //       }];
-      //       alert('Unable to retrieve data from the database. The default values will be used instead.  Error: '+response.statusText);
-      //       console.log(response);
-      //     });
+      var availableRooms = [];
+      $http.get('php/getrooms.php')
+        .then(
+          function(response){
+            availableRooms = response.data.records;
+            $rootScope.$broadcast("roomsDownloaded", availableRooms);
+          },
+          function(response){
+            availableRooms = [{
+              "id": 1,
+              "name": "Sim City",
+              "active": false
+            },
+            {
+              "id": 2,
+              "name": "Zelda",
+              "active": false
+            },
+            {
+              "id": 3,
+              "name": "Sonic",
+              "active": false
+            },
+            {
+              "id": 4,
+              "name": "Halo",
+              "active": false
+            }];
+            alert('Unable to retrieve data from the database. The default values will be used instead.  Error: '+response.statusText);
+            console.log(response);
+            $rootScope.$broadcast("roomsDownloaded", availableRooms);
+          });
 
       function initRoomDaySchedule() {
 				availableRooms.forEach((room) => {
@@ -151,8 +148,12 @@
 			// init the rooms' schedules by building onto our room objects in our room array
 			initRoomDaySchedule();
 
+      function fetchAvailableRooms() {
+        return availableRooms;
+      }
+
 			return {
-				"availableRooms": availableRooms,
+				"availableRooms": fetchAvailableRooms,
 				"setSelectedRoom": setSelectedRoom,
 				"fetchRoomByID": fetchRoomByID,
 				"fetchSelectedRoom": fetchSelectedRoom,

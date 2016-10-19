@@ -2,8 +2,12 @@
   angular
     .module('base')
     .directive('cdTopMenu',function(){
-      function cdTopMenuController(roomsService,userSettingsService){
-        this.availableRooms = roomsService.availableRooms;
+      function cdTopMenuController($scope,roomsService,userSettingsService){
+        var vm = this;
+        $scope.$on("roomsDownloaded", function(event, data) {
+          vm.availableRooms = data;
+        });
+        this.availableRooms = roomsService.availableRooms();
         this.bookmarks = userSettingsService.bookmarks;
         this.sort = '+name';
         this.setSelectedRoom = function(id){
