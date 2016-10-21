@@ -34,5 +34,7 @@
     $stateProvider.state(roomState);
     $stateProvider.state(bookmarkAdd);
     $stateProvider.state(bookmarkDel);
-  });
+  })
+  .constant('APIAddress','https://confdeconflictor.firebaseio.com')
+  .constant('ApplicationName','Conference Deconflictor');
 })(window.angular);

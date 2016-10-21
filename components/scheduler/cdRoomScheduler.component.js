@@ -9,7 +9,7 @@
       this.selectedReason = null;
     };
     this.$onDestroy = function(){
-      console.log('Component destroy');
+      // console.log('Component destroy');
     };
     this.setSelectedRoomSchedule = function(id) {
       if(this.name && this.selectedReason)

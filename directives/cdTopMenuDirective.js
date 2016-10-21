@@ -4,10 +4,15 @@
     .directive('cdTopMenu',function(){
       function cdTopMenuController($scope,roomsService,userSettingsService){
         var vm = this;
-        $scope.$on("roomsDownloaded", function(event, data) {
-          vm.availableRooms = data;
+        vm.availabler = null;
+
+        roomsService.getAvailableRooms().then(function(response){
+          vm.availabler = response.data;
+          // console.log(vm.availabler);
+          // $scope.$watch(function() { return vm.availabler }, function() { alert("Watch changed"); vm.availabler = response.data; });
+          $scope.$apply();
         });
-        this.availableRooms = roomsService.availableRooms();
+
         this.bookmarks = userSettingsService.bookmarks;
         this.sort = '+name';
         this.setSelectedRoom = function(id){

@@ -5,15 +5,15 @@
       <li>
         <cd-sorter></cd-sorter>
       </li>
-      <li class="dropdown">
+      <!-- <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rooms<span class="caret"></span>
-          <ul class="dropdown-menu">
-            <li ng-repeat="item in topMenu.availableRooms | orderBy:sortBy" ng-click="topMenu.setSelectedRoom(item.id)" ng-class="{active:item.active}">
+          <ul class="dropdown-menu"> -->
+            <li ng-repeat="item in topMenu.availabler" ng-click="topMenu.setSelectedRoom(item.id)" ng-class="{active:item.active}">
               <a ui-sref="room({id:item.id})">{{item.name}}</a>
             </li>
-          </ul>
+          <!-- </ul>
         </a>
-      </li>
+      </li> -->
     </ul>
     <ul class="navbar-nav navbar-right nav">
       <li class="dropdown">
