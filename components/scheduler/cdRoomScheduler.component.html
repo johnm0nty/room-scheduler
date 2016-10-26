@@ -1,5 +1,5 @@
 <div ng-repeat="reservationslot in model.selectedRoom.reservations" ng-class="{isReserved:reservationslot.isReserved, reservationSlot:true, row:true}">
-
+  <!-- <button ng-click='model.resetRoomScheduleData()'>Button</button> -->
   <div class="col-xs-3 scheduleHours">
     <i class="users blue huge icon"></i>
     <h4>{{reservationslot.startHour + " o'clock - "}} <br/> {{reservationslot.endHour + " o'clock"}}</h4>
@@ -40,7 +40,7 @@
     </div>
   </div>
   <div class="col-xs-3" ng-show="reservationslot.showui">
-    <button ng-hide="reservationslot.isReserved || !reserveForm.$valid" ng-click="model.setSelectedRoomSchedule(reservationslot.id)" class="scheduleBtn">Add Reservation</button>
+    <button ng-hide="reservationslot.isReserved || !reserveForm.$valid" ng-click="model.selectedRoom.reservations[reservationslot.id].setReservation()" class="scheduleBtn">Add Reservation</button>
     <button ng-show="reservationslot.isReserved" ng-click="model.deleteSelectedRoomSchedule(reservationslot.id);reservationslot.showui=false" class="scheduleBtn">Withdraw Reservation</button>
   </div>
 </div>

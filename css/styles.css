@@ -13,3 +13,6 @@
 .scheduleHours {
   margin-top:30px;
 }
+.navbar-brand {
+  border-right:1px solid #777;
+}
